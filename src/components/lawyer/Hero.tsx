@@ -9,7 +9,7 @@ export const Hero = () => {
         <h1 className="text-4xl md:text-6xl font-black tracking-tight">
           ייעוץ משפטי מקצועי, יחס אישי.
         </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-200">
+        <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-200 font-bold">
           משרדנו מעניק ליווי משפטי מקיף במגוון תחומים, תוך מתן דגש על שירות אישי, זמינות ומצוינות.
         </p>
         <div className="mt-8">
