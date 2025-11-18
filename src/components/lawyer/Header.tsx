@@ -6,6 +6,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 const navLinks = [
   { href: "#about", label: "אודות" },
   { href: "#services", label: "תחומי התמחות" },
+  { href: "#videos", label: "סרטונים" },
+  { href: "#testimonials", label: "המלצות" },
   { href: "#contact", label: "צור קשר" },
 ];
 
