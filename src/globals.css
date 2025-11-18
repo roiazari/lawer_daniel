@@ -101,4 +101,36 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Accessibility Styles */
+  html.high-contrast {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 0 0% 80%;
+    --accent: 0 0% 13%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 0%;
+    --border: 0 0% 40%;
+    --input: 0 0% 13%;
+    --ring: 0 0% 100%;
+  }
+
+  html.highlight-links a {
+    @apply underline bg-yellow-300 text-black p-1 rounded;
+  }
+  
+  html.high-contrast .relative.text-white .bg-slate-900.opacity-60 {
+    background-color: black;
+    opacity: 0.8;
+  }
 }

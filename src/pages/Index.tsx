@@ -4,6 +4,7 @@ import { About } from "@/components/lawyer/About";
 import { PracticeAreas } from "@/components/lawyer/PracticeAreas";
 import { Contact } from "@/components/lawyer/Contact";
 import { Footer } from "@/components/lawyer/Footer";
+import { AccessibilityMenu } from "@/components/lawyer/AccessibilityMenu";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <AccessibilityMenu />
     </div>
   );
 };
