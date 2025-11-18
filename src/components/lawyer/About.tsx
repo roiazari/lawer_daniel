@@ -14,8 +14,8 @@ export const About = () => {
           </div>
           <div className="flex justify-center">
             <img 
-              src="https://cdn.pixabay.com/photo/2024/02/23/19/33/ai-generated-8592443_1280.png" 
-              alt="עו'ד דניאל לוי - איור תלת מימד" 
+              src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop" 
+              alt="עו'ד דניאל לוי" 
               className="rounded-lg shadow-xl w-full max-w-sm h-auto object-cover"
             />
           </div>
