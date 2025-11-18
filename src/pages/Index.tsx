@@ -5,6 +5,7 @@ import { PracticeAreas } from "@/components/lawyer/PracticeAreas";
 import { Contact } from "@/components/lawyer/Contact";
 import { Footer } from "@/components/lawyer/Footer";
 import { AccessibilityMenu } from "@/components/lawyer/AccessibilityMenu";
+import { FloatingContactButton } from "@/components/lawyer/FloatingContactButton";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <FloatingContactButton />
       <AccessibilityMenu />
     </div>
   );
