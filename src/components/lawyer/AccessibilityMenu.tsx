@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Accessibility, ZoomIn, ZoomOut, Contrast, Link, RotateCcw } from "lucide-react";
+import { Accessibility } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
+import { ZoomIn, ZoomOut, RotateCcw } from "lucide-react";
 
 const FONT_STEP = 2;
 const INITIAL_FONT_SIZE = 16; // Assuming base is 16px
@@ -106,9 +107,8 @@ export const AccessibilityMenu = () => {
     <Popover>
       <PopoverTrigger asChild>
         <Button
-          variant="secondary"
           size="icon"
-          className="fixed bottom-4 left-4 z-50 rounded-full h-14 w-14 shadow-lg"
+          className="fixed bottom-4 left-4 z-50 rounded-full h-14 w-14 shadow-lg bg-sky-500 hover:bg-sky-600 text-white"
           aria-label="תפריט נגישות"
         >
           <Accessibility className="h-7 w-7" />
