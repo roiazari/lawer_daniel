@@ -133,4 +133,27 @@
     background-color: black;
     opacity: 0.8;
   }
+
+  html.readable-font body,
+  html.readable-font button,
+  html.readable-font input,
+  html.readable-font textarea,
+  html.readable-font select {
+    font-family: Arial, sans-serif !important;
+  }
+
+  html.block-animations *,
+  html.block-animations *::before,
+  html.block-animations *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  *:focus-visible {
+    outline: 3px solid hsl(var(--ring) / 0.8);
+    outline-offset: 2px;
+    border-radius: var(--radius);
+  }
 }

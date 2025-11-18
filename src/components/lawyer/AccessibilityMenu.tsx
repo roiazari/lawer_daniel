@@ -11,25 +11,33 @@ export const AccessibilityMenu = () => {
   const [fontSize, setFontSize] = useState(INITIAL_FONT_SIZE);
   const [isHighContrast, setIsHighContrast] = useState(false);
   const [areLinksHighlighted, setAreLinksHighlighted] = useState(false);
+  const [isReadableFont, setIsReadableFont] = useState(false);
+  const [areAnimationsBlocked, setAreAnimationsBlocked] = useState(false);
 
   useEffect(() => {
     // Load settings from localStorage on mount
     const savedFontSize = localStorage.getItem("accessibility-font-size");
     const savedHighContrast = localStorage.getItem("accessibility-high-contrast");
     const savedHighlightLinks = localStorage.getItem("accessibility-highlight-links");
+    const savedReadableFont = localStorage.getItem("accessibility-readable-font");
+    const savedAnimationsBlocked = localStorage.getItem("accessibility-animations-blocked");
 
     const initialFontSize = savedFontSize ? parseInt(savedFontSize, 10) : INITIAL_FONT_SIZE;
     const initialHighContrast = savedHighContrast === "true";
     const initialHighlightLinks = savedHighlightLinks === "true";
+    const initialReadableFont = savedReadableFont === "true";
+    const initialAnimationsBlocked = savedAnimationsBlocked === "true";
 
     setFontSize(initialFontSize);
     setIsHighContrast(initialHighContrast);
     setAreLinksHighlighted(initialHighlightLinks);
+    setIsReadableFont(initialReadableFont);
+    setAreAnimationsBlocked(initialAnimationsBlocked);
 
-    applySettings(initialFontSize, initialHighContrast, initialHighlightLinks);
+    applySettings(initialFontSize, initialHighContrast, initialHighlightLinks, initialReadableFont, initialAnimationsBlocked);
   }, []);
 
-  const applySettings = (size: number, contrast: boolean, links: boolean) => {
+  const applySettings = (size: number, contrast: boolean, links: boolean, font: boolean, animations: boolean) => {
     if (size !== INITIAL_FONT_SIZE) {
       document.documentElement.style.fontSize = `${size}px`;
     } else {
@@ -37,6 +45,8 @@ export const AccessibilityMenu = () => {
     }
     document.documentElement.classList.toggle("high-contrast", contrast);
     document.documentElement.classList.toggle("highlight-links", links);
+    document.documentElement.classList.toggle("readable-font", font);
+    document.documentElement.classList.toggle("block-animations", animations);
   };
 
   const handleFontSizeChange = (increase: boolean) => {
@@ -62,16 +72,34 @@ export const AccessibilityMenu = () => {
     document.documentElement.classList.toggle("highlight-links", newHighlight);
   };
 
+  const toggleReadableFont = () => {
+    const newFont = !isReadableFont;
+    setIsReadableFont(newFont);
+    localStorage.setItem("accessibility-readable-font", newFont.toString());
+    document.documentElement.classList.toggle("readable-font", newFont);
+  };
+
+  const toggleBlockAnimations = () => {
+    const newAnimations = !areAnimationsBlocked;
+    setAreAnimationsBlocked(newAnimations);
+    localStorage.setItem("accessibility-animations-blocked", newAnimations.toString());
+    document.documentElement.classList.toggle("block-animations", newAnimations);
+  };
+
   const resetSettings = () => {
     setFontSize(INITIAL_FONT_SIZE);
     setIsHighContrast(false);
     setAreLinksHighlighted(false);
+    setIsReadableFont(false);
+    setAreAnimationsBlocked(false);
 
     localStorage.removeItem("accessibility-font-size");
     localStorage.removeItem("accessibility-high-contrast");
     localStorage.removeItem("accessibility-highlight-links");
+    localStorage.removeItem("accessibility-readable-font");
+    localStorage.removeItem("accessibility-animations-blocked");
 
-    applySettings(INITIAL_FONT_SIZE, false, false);
+    applySettings(INITIAL_FONT_SIZE, false, false, false, false);
   };
 
   return (
@@ -111,6 +139,18 @@ export const AccessibilityMenu = () => {
             <span className="font-medium">הדגשת קישורים</span>
             <div className={`w-10 h-6 rounded-full p-1 flex items-center transition-colors ${areLinksHighlighted ? 'bg-primary' : 'bg-muted'}`}>
               <div className={`w-4 h-4 rounded-full bg-background transform transition-transform ${areLinksHighlighted ? 'translate-x-4' : ''}`}></div>
+            </div>
+          </button>
+          <button className="w-full flex items-center justify-between p-2 rounded-md hover:bg-accent" onClick={toggleReadableFont}>
+            <span className="font-medium">פונט קריא</span>
+            <div className={`w-10 h-6 rounded-full p-1 flex items-center transition-colors ${isReadableFont ? 'bg-primary' : 'bg-muted'}`}>
+              <div className={`w-4 h-4 rounded-full bg-background transform transition-transform ${isReadableFont ? 'translate-x-4' : ''}`}></div>
+            </div>
+          </button>
+          <button className="w-full flex items-center justify-between p-2 rounded-md hover:bg-accent" onClick={toggleBlockAnimations}>
+            <span className="font-medium">חסימת אנימציות</span>
+            <div className={`w-10 h-6 rounded-full p-1 flex items-center transition-colors ${areAnimationsBlocked ? 'bg-primary' : 'bg-muted'}`}>
+              <div className={`w-4 h-4 rounded-full bg-background transform transition-transform ${areAnimationsBlocked ? 'translate-x-4' : ''}`}></div>
             </div>
           </button>
           <Separator />
