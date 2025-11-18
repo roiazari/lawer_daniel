@@ -90,6 +90,8 @@ export default {
           },
         },
         "scroll-rtl": {
+          // מגדיר גלילה שמאלה (RTL) בדיוק ב-50% מרוחב הקונטיינר (שהוא 200% רוחב המסך),
+          // כלומר: גלילה ברוחב של סט ההמלצות המקורי.
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
@@ -97,7 +99,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "scroll-rtl": "scroll-rtl 40s linear infinite",
+        "scroll-rtl": "scroll-rtl 40s linear infinite", // 40 שניות לקצב גלילה נעים
       },
     },
   },
