@@ -14,6 +14,19 @@ const navLinks = [
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleMobileLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+    // A short delay to allow the sheet to start closing before scrolling
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
@@ -50,7 +63,7 @@ export const Header = () => {
                     key={link.href}
                     href={link.href}
                     className="text-lg font-medium"
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => handleMobileLinkClick(e, link.href)}
                   >
                     {link.label}
                   </a>
