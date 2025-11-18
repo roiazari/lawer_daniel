@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Scale, Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -15,9 +15,8 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
-        <a href="#" className="flex items-center gap-2 font-bold">
-          <Scale className="h-6 w-6 text-primary" />
-          <span>דניאל לוי - משרד עורכי דין</span>
+        <a href="#" className="flex items-center">
+          <img src="/placeholder.svg" alt="לוגו משרד עורכי דין" className="h-8 w-auto" />
         </a>
         <nav className="hidden md:flex gap-4 mr-auto">
           {navLinks.map((link) => (
@@ -39,9 +38,8 @@ export const Header = () => {
             </SheetTrigger>
             <SheetContent side="right">
               <div className="flex flex-col gap-6 p-6">
-                <a href="#" className="flex items-center gap-2 font-bold mb-4" onClick={() => setIsOpen(false)}>
-                  <Scale className="h-6 w-6 text-primary" />
-                  <span>דניאל לוי</span>
+                <a href="#" className="flex items-center mb-4" onClick={() => setIsOpen(false)}>
+                  <img src="/placeholder.svg" alt="לוגו משרד עורכי דין" className="h-8 w-auto" />
                 </a>
                 {navLinks.map((link) => (
                   <a
