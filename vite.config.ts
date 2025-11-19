@@ -3,15 +3,9 @@ import dyadComponentTagger from "@dyad-sh/react-vite-component-tagger";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// This configuration is specifically for deploying to GitHub Pages.
 export default defineConfig(() => ({
-  // The 'base' path must be the name of your GitHub repository.
-  base: "/lawyer-website/",
-
   build: {
-    // The output directory MUST be 'docs' for GitHub Pages to find it
-    // when deploying from a branch folder.
-    outDir: "docs",
+    outDir: "dist",
     sourcemap: false,
   },
   server: {
