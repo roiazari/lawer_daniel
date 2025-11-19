@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 export default {
   darkMode: ["class"],
@@ -20,7 +20,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Heebo", ...fontFamily.sans],
+        sans: ["Heebo", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
