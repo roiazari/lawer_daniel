@@ -5,14 +5,12 @@ import path from "path";
 
 // This configuration is specifically for deploying to GitHub Pages.
 export default defineConfig(() => ({
-  // The 'base' path must be the name of your GitHub repository,
-  // with a leading and trailing slash.
-  // Based on your screenshot, your repository is 'lawyer-website'.
+  // The 'base' path must be the name of your GitHub repository.
   base: "/lawyer-website/",
 
   build: {
-    // The output directory is set to 'docs', which is what GitHub Pages
-    // is configured to use for deployment.
+    // The output directory MUST be 'docs' for GitHub Pages to find it
+    // when deploying from a branch folder.
     outDir: "docs",
     sourcemap: false,
   },
