@@ -15,7 +15,7 @@ const services = [
   {
     icon: <Briefcase className="h-8 w-8 text-primary" />,
     title: "משפט מסחרי",
-    description: "הקמת חברות, עריכת חוזים מסחריים, ליווי שוטף לחברות וייצוג בסכסוך עסקי.",
+    description: "הקמת חברות, עריכת חוזים מסחריים, ליווי שוטף לחברות וייצוג בסכסוכים עסקיים.",
   },
   {
     icon: <Gavel className="h-8 w-8 text-primary" />,
